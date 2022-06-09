@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/intro.css", type=text/css>
+        <link rel="stylesheet" href="../static/pageButtons.css">
+        <title>Introduction & Theory</title>
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+    </head>
+    <body>
+        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC</h1>
+        <p class="beginning"> 
+            <button class="introandtheory" onclick="window.location.href='http://127.0.0.1:80/'">Abstract & Acknowledgments</button> 
+            <button class="apparatus" onclick="window.location.href='http://127.0.0.1:80/Apparatus'">Apparatus</button> 
+            <button class="procedure" onclick="window.location.href='http://127.0.0.1:80/Procedure'">Procedure</button> 
+            <button class="dataAnalysis" onclick="window.location.href='http://127.0.0.1:80/DataAnalysis'">Data Analysis</button> 
+            <button class="conclusion" onclick="window.location.href='http://127.0.0.1:80/Conclusions'">Conclusion</button> 
+            <button class="appendix" onclick="window.location.href='http://127.0.0.1:80/Appendix'">Appendices</button> 
+            <br>Included within this page are buttons to take you to other parts of the paper, the Introduction, and the Theory.
+        </p>
+        <h1 class="introduction">Introduction</h1>
+        <p class="intro-body">
+            Equipment calibration is necessary to ensure that everything is functioning as intended and that results can be obtained with confidence. When someone wants to use a piece of equipment, they want to have the confidence that the equipment is functioning as intended. For someone to build this confidence, a calibration would be necessary. When working with a PMT one would be interested in the gain of the PMT, making sure that proper amplification is being supplied to every signal of interest. The purpose of this report is to perform analysis on data acquired from each PMT, extracting the individual gain values, and comparing them to the nominal ratings provided by the manufacturer.
+        </p>
+        <h1 class="Theory-title">Theory</h1>
+        <p class="theory-body">
+            The PMT's calibrated will be used to look at the decay of $^{136}Xe \xrightarrow{} ^{136}Ba^{2+} + 2e^{-} + 2\overline{\nu}_{e}$[2], known as two neutrino double beta decay ($2\nu\beta\beta$)[3].
+        </p>
+        <h2 class="doublebetadecay">Two Neutrino Double Beta Decay</h2>
+        <p class="doublebetadecay-content">
+            When a particle decays, there are necessary quantities that must be conserved, such as energy, momenta, lepton number, etc.[4] and other values that might not be conserved, such as parity within a weak interaction [5].
+            \begin{equation}
+                ^{136}Xe \xrightarrow{} ^{136}Ba^{2+} + 2e^{-} + 2\overline{\nu}_{e}
+            \end{equation}
+            This decay happens through a weak interaction and is of interest because it produces $2\overline{\nu}_{e}$ for studying. Currently, the exact mass of a neutrino is unknown, with only a variable range of values for it's mass having been postulated [6]. The measurement of this neutrino double beta decay allows for one to calculate an absolute mass for the neutrino [7]. A similar beta-decay had been theorized, which is similar to the neutrino double beta decay, known as the "neutrino-less double beta decay" ($0\nu\beta\beta$). Equation (2) is the interaction of interest for the EXO team at Carleton University, as a absolute mass of the neutrino is trying to be measured/calculated.
+            \begin{equation}
+            ^{136}Xe \xrightarrow{} ^{136}Ba^{2+} + 2e^{-}
+            \end{equation}
+            If this decay is to be measured in the future, it would imply that the neutrino is its own anti-particle, known as a Majorana particle [1]
+        </p>
+        <h2 class="LightCollectionSystem">Light Collection System</h2>
+        <p class="lightcollectionsystem-content">
+            A set of equipment used for collecting scintillation light from a decay of interest is known as the light collection system. For this experiment, the light collection system was comprised of an array of PMT's, pre-amplifiers, an amplifier, and a oscilloscope. <br>
+            <h3 class="photomultipliertubes-title">Photo-Multiplier Tubes</h3>
+            <p class="photomultipliertubes-content">
+                A PMT is a detector that converts photons into photo-electrons (PE), through the photoelectric effect on a thin film called the photo-cathode. Figure (1) illustrates how high energy photons interact within a chamber producing low energy photons within the PMT. <br>
+                
+                <img id="pmt_operation" src="C:\Users\shark\Desktop\practice Code\Thesis Server\templates\picutres\PMT_operation.jpg" width="128" height="128" > <br>
+
+                These low energy photons will collide with the photo-cathode, ejecting PE's. The PE's ejected from the photo-cathode will be focused down onto a series of dynodes. A dynode is a metal plate within the PMT that will be used for the amplification of a signal. The conversion of a photon into a PE has an efficiency, described as Quantum Efficiency [8]. The photo-cathode sensitivity varies with the wavelength of the incident photon [8]. The relationship between the photo-cathode sensitivity and the wavelength is known as the spectral response characteristic of a PMT [9]. The spectral response characteristic of a PMT will differ depending on the make up of material for a photo-cathode[9]. Figure (\ref{QE_plot}) details the relationship between the photo-cathode sensitivity and the wavelength of the photon. The spectral response is typically expressed in terms of a quantum efficiency and radiant sensitivity [9]. The quantum efficiency of a photo-cathode is defined as the ratio of photo-electrons emitted from a photo-cathode to the number of incident photons [8]. This efficiency is typically expressed as a percentage and is described in equation (3):
+                \begin{equation}
+                    QE = \frac{Number\ of\ photo-electrons}{Number\ of\ incident\ photons}\cdot100\%
+                \end{equation}
+
+                \begin{figure}[H]
+                    \centering
+                    \hspace{-1cm}
+                    \includegraphics[width=0.7\textwidth]{Pictures/quantum_eff.png}
+                    \caption{Quantum Efficiency as function of Wavelength of Incident Photons [8]}
+                    \label{QE_plot}
+                \end{figure}
+                Once a photo-electron is ejected off the photo-cathode, it is focused toward the first dynode by a pair of electrodes seen in figure (\ref{PMT_diagram}). The series of dynodes within the PMT are held at a potential difference to the next one in the series. When the first PE accelerates down onto the first dynode, it collides with the dynode. As a result, the energy transferred from the PE will eject more electrons. These new electrons are called 'secondary emission electrons', and they will be accelerated down onto the next dynode within the series. This multiplication process will continue until all of the secondary electrons are deposited onto an anode. This large deposit of electrons is the PMT's outputted pulse. A power supply is used in conjunction with a voltage divider circuit to hold the dynodes within the PMT at a desired potential difference. Figure(\ref{voltage_divider_circuit}) details a voltage divider circuit.
+                \begin{figure}[H]
+                    \centering
+                    \hspace*{-1cm}
+                    \includegraphics[width=1.2\textwidth]{Pictures/voltage_divider_circuit_sebastian.png}
+                    \caption{Voltage Divider Circuit for Light Collection System for EXO-100 TPC [2]}
+                    \label{voltage_divider_circuit}
+                \end{figure}
+                PMT's are designed to be single PE sensitive and are used within low light conditions[20]. Even when a PMT is operated within low light conditions, outputted signals corresponding to a '0' PE trace can occur. 
+                Figure(\ref{noisy_pmt_signal}) visualizes a PMT trace that has lots of noise. 
+                %put the figure of a PMT trace that is super noisy
+                \begin{figure}[H]
+                    \centering
+                    \hspace*{0cm}
+                    \includegraphics[width=1\textwidth]{Pictures/noisy_pmt_signal.png}
+                    \caption{Noisy PMT Signal}
+                    \label{noisy_pmt_signal}
+                \end{figure}
+                These type of noise pulses are known are 'dark pulses', or 'dark counts'. Dark pulses will typically fall within one of the following categories:
+
+                <ol>
+                    <dt class="thermionic-emission">Thermionic Emission of Electrons</dt>
+                    <dd>- Because of the material that makes up either the photo-cathode (bialkali glass) or the dynodes, they both have low work functions within room temperature. The work function is described as the energy needed to eject an electron off of a material. With such a low energy work function, electrons on the dynode at room temperature might spontaneously have enough energy to be ejected. Hence, even at room temperature, even when no light is present, electrons can flow through the dynode chain and produce a voltage pulse.[11] </dd>
+
+                    <dt class="ionization-gas">Ionization of residual gases</dt>
+                    <dd>- The space within a photo-multiplier tube where the dynodes are located is held at a vacuum. This is to eliminate the interaction of photo-electrons and secondary emission electrons from interacting with any residual gas. Although this is near ideal, a perfect vacuum is impossible within nature [12]. This means that there is some residual gas left within the PMT, and when a photo-electron strikes this gas, it can ionize the gas as a result. The electrons produced from the ionization will lag behind the main signal. This type of noise can be observed as a pulse that follows the main pulse from the photo-electron, called an "after pulse".[11, 13]</dd>
+
+                    <dt class="field-emission">Field Emission</dt>
+                    <dd>- If the PMT is operated with a voltage near its maximum rating, the produced electric field, from dynodes, can create electrons to be emitted from the electrodes. An electrode within a PMT (also known as 'focusing electrodes') focuses the photo-electrons emitted from the photo-cathode onto the first dynode.  The manufacturer recommends that a PMT should be operated between 100 and 300 volts below its maximum rating to prevent these types of dark pulses [13].</dd>
+                </ol>
+
+                As stated before, all photo-electrons will be accelerated down onto the first dynode to create secondary emission electrons. These will then be focused and accelerated down onto the next dynode within the dynode series, multiplying the number of electrons with each dynode collision. All of the created secondary emission electrons are then deposited onto an anode. The ratio between the number of photo-electrons to the number of electrons deposited on the anode is defined as the "gain"[13].
+            </p>
+            <h3 class="electronicchain-title">Electronic Chain</h3>
+            <p class="electronicchain-content">The electronic chain is the equipment used to handle and extract the signals outputted
+                by a PMT. The PMT acts like a current source since it outputs current pulses [9].
+                Typically the electronic chain is made up of a pre-amplifier and an amplifier. The
+                pre-amplifier will integrate this current pulse, producing a voltage pulse [14]. This
+                voltage pulse will then be send to the amplifier. The amplifier will amplify the signal
+                outputted by the pre-amplifier, and then send this signal to the desired equipment for
+                signal analysis. A piece of equipment used for visualizing and analyzing the traces from
+                a PMT, passed through the electronic chain, is a oscilloscope.</p>
+        </p>
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/dataAnalysis.css", type=text/css>
+        <link rel="stylesheet" href="../static/pageButtons.css">
+        <title>Introduction & Theory</title>
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+    </head>
+    <body>
+        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC</h1>
+        <p class="beginning"> 
+            <button class="introandtheory" onclick="window.location.href='http://127.0.0.1:80/'">Abstract & Acknowledgments</button> 
+            <button class="dataAnalysis" onclick="window.location.href='http://127.0.0.1:80/IntroAndTheory'">Introduction & Theory</button>
+            <button class="apparatus" onclick="window.location.href='http://127.0.0.1:80/Apparatus'">Apparatus</button> 
+            <button class="procedure" onclick="window.location.href='http://127.0.0.1:80/Procedure'">Procedure</button>  
+            <button class="conclusion" onclick="window.location.href='http://127.0.0.1:80/Conclusions'">Conclusion</button> 
+            <button class="appendix" onclick="window.location.href='http://127.0.0.1:80/Appendix'">Appendices</button> 
+            <br>Included within this page are buttons to take you to other parts of the paper, the Introduction, and the Theory.
+        </p>
+
+        <h1 class="DataAnalysis-title">Data Analysis</h1>
+        <p class="dataAnalysis-des">
+            All compilation of data was done in python. All analysis, model fitting, and parameter extraction was done in python using PYROOT. 
+            <h2 class="electronicChainresults-title">Results of Electronic Chain Calibration</h2>
+            <p class="electronicChainresults-des">
+                Because a test pulse of a sharp rise and linear decay was chosen, this introduced a trend within the analysis. See figure (\ref{PM_amplitude_change}) and (\ref{PM_frequency_change}) to see this negative trend. This is a result by changing the slope of the decay of the test pulse. This is done by changing the settings on the test pulse. To find the appropriate gain from each data set, a linear line was fitted to the trend and the intercept was extracted. This intercept is what was averaged between the two data sets for each PM. 
+
+                <table></table>
+                <img src="" alt="">
+                <table></table>
+                <img src="" alt="">
+                <table></table>
+            </p>
+            <h2 class="PMTresults-title">Results of PMT Calibration</h2>
+            <p></p>
+        </p>
+    </body>
+</html>

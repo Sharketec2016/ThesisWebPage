@@ -1,0 +1,99 @@
+
+/* ------------------------------------------- */
+/*  HERE IS THE STYLE FOR ALL OF THE BUTTONS */
+
+/* Introduction & Theory */
+.introandtheory{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+
+}
+.introandtheory:hover{
+    background-color: rgb(203, 202, 202)
+}
+
+.introandtheory:active{
+    opacity: 0.7;
+}
+
+/* Apparatus */
+.apparatus{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.apparatus:hover{
+    background-color: rgb(203, 202, 202)
+}
+
+.apparatus:active{
+    opacity: 0.7;
+}
+
+/* Procedure */
+.procedure{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.procedure:hover{
+    background-color: rgb(203, 202, 202)
+}
+.procedure:active{
+    opacity: 0.7;
+}
+
+/* Data Analysis */
+.dataAnalysis{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.dataAnalysis:hover{
+    background-color: rgb(203, 202, 202)
+}
+.dataAnalysis:active{
+    opacity: 0.7;
+}
+
+/* Conclusion */
+.conclusion{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+.conclusion:hover{
+    background-color: rgb(203, 202, 202)
+}
+.conclusion:active{
+    opacity: 0.7;
+}
+
+
+/* Appendix */
+.appendix{
+    color: black;
+    background-color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 3px 3px 5px black;
+}
+
+.appendix:hover{
+    background-color: rgb(203, 202, 202)
+}
+
+.appendix:active{
+    opacity: 0.7;
+}

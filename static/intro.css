@@ -1,0 +1,21 @@
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.beginning{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+}
+
+
+.thermionic-emission{
+    text-decoration: underline;
+}
+
+.ionization-gas{
+    text-decoration: underline;
+}
+
+.field-emission{
+    text-decoration: underline;
+}

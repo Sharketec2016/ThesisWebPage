@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/procedure.css", type=text/css>
+        <link rel="stylesheet" href="../static/pageButtons.css">
+        <title>Introduction & Theory</title>
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body>
+        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC</h1>
+        <p class="beginning"> 
+            <button class="introandtheory" onclick="window.location.href='http://127.0.0.1:80/'">Abstract & Acknowledgments</button> 
+            <button class="apparatus" onclick="window.location.href='http://127.0.0.1:80/Apparatus'">Apparatus</button> 
+            <button class="procedure" onclick="window.location.href='http://127.0.0.1:80/IntroAndTheory'">Introduction & Theory</button> 
+            <button class="dataAnalysis" onclick="window.location.href='http://127.0.0.1:80/DataAnalysis'">Data Analysis</button> 
+            <button class="conclusion" onclick="window.location.href='http://127.0.0.1:80/Conclusions'">Conclusion</button> 
+            <button class="appendix" onclick="window.location.href='http://127.0.0.1:80/Appendix'">Appendices</button> 
+            <br>Included within this page are buttons to take you to other parts of the paper and the Procedure
+        </p>
+
+        <h1 class="Procedure-title">Procedure</h1>
+        <p class="procedure-des">
+            To perform a gain calibration for a PMT, it is neccessary to account for the gain attributed to the electronics that were used to extract the signal.
+            <h2 class="electronicchainCal">Calibration of Electronic Chain</h2>
+            <p class="electronicCal-des">
+                As stated before, the electronic chain is the chain of equipment used to handle the signal from a PMT. 
+
+                <img src="" alt="">
+
+                Figure (\ref{electronic_chain_circuit}) details the setup used for calibrating the electronic chain. In figure (\ref{electronic_chain_circuit}), all forms of impedance are denoted 'Z'. A test pulse was created by the picoscopes arbitrary waveform generator, and sent through the electronic chain. Figure (\ref{electronic_chain_waveform}) shows one of the traces acquired from the calibration of the electronic chain. 
+
+                <img src="" alt="">
+
+                To find the gain of the electronic chain, the ratio of the charge of the test pulses was found. This is described by equation \eqref{electronic_chain_gain}.
+                \begin{equation}\label{electronic_chain_gain}
+                    Electronic\hspace{0.5em}Chain\hspace{0.5em}Gain = \frac{Charge\hspace{0.5em}of\hspace{0.5em}Output\hspace{0.5em}Signal}{Charge\hspace{0.5em}of\hspace{0.5em}Input\hspace{0.5em}Signal}
+                \end{equation}
+                When picking a test pulse to be sent through a set of electronics that will be used for calibrating/extracting signals from a PMT, it is important to pick a test pulse that matches a PMT signal as close as possible. A PMT outputs a current pulse with a shape consisting of a sharp rise and exponential decay [17]. When calibrating the electronics, a test pulse of a sharp rise and linear decay was chosen. It should be noted that it is possible to configure the picoscopes' arbitrary wave-form generator such that a PMT test pulse is mimicked. Unfortunately, at the time, this was not done as prior knowledge to be able to create such a test pulse was not known. Instead the next best test pulse was used. All pre-amplifiers were calibrated and two data sets were acquired for each pre-amplifier. The two data sets changed either the frequency or the amplitude of the test pulse. Meaning that for a data set pertaining to the change in frequency of the test pulse, a change of 60-100 [kHz] was done in 10 kHz steps held at a amplitude of 250 mV. For the amplitude data set, a constant frequency of 100 kHz was set while the amplitude varied from 300-400 mV with 50 mV increment steps.
+                <br>
+                When acquiring data, for each setting of the test pulse, 1000 waveform traces were acquired. Each test pulse setting (that being the 1000 waveforms) were imported into python. This code compiled the CSV data sets. One CSV file contained the charge of the test pulse being sent into the electronics, and another CSV file contains the charge of the test pulse being extracted from the electronics. It should be noted that when the test pulse was sent through the electronic chain, the input port was not used, but should have been. It is important to note that further test/usage should be done with this port. Because of this, there was an impedance mismatch between the cable and the pre-amplifier. The cable used was a typical BNC with a impedance of 50 $\Omega$. The input impedance for the test pulse input port was an impedance of 100 $\Omega$. Using equation \eqref{transmission coefficient} the charge extracted from the waveform displaying the input test pulse was corrected by multiplying by this coefficient. The impedance factor for the input test pulse was $t=\frac{2}{3}$
+                \begin{equation}\label{transmission coefficient}
+                    Transmission\hspace{0.5em}Coefficient\hspace{0.5em}t = \frac{2Z_i}{Z_i+Z_f}
+                \end{equation}
+                In equation \eqref{transmission coefficient}, $Z_i$ shows the impedance of the cable and $Z_f$ is the impedance of the test input of the pre-amplifier. A similar operation was done for the signal outputted from the amplifier into a BNC cable. The output impedance of the amplifier was 93 $\Omega$, and input impedance of the cable was 50 $\Omega$. This impedance mismatch leads to a factor of $t=\frac{143}{100}$. See Appendix B for the calculations. Once the voltage of the input and output of the test pulse accounted for the impedance mismatching, the charge for each were found. The charge of the input test pulse was found by using the capacitor of the test input of the pre-amplifier. This capacitor has a value of $C=45\hspace{0.5em}pF$, and using equation \eqref{Charge_eq} the charge of the input test pulse was found. 
+                \begin{equation}\label{Charge_eq}
+                    Charge\hspace{0.5em}Q=(Capacitance\hspace{0.5em}C)\cdot(Voltage\hspace{0.5em}V)
+                \end{equation}
+                Using equation \eqref{electronic_chain_gain}, the gain for each waveform can be found. Out of the 1000 traces, for each test pulse setting, a histogram similar to figure (\ref{pm_histogram_example}) was made. <br>
+
+                <img src="" alt="">
+
+                <br>
+                Since electronics will have an inherent noise, that is modeled after a normal distribution, these histograms were curve fitted with a standard Gaussian model within PYROOT [18]. Extracting the mean parameter of each one of these fits was logged within a CSV file. Once all of the test pulse settings were analyzed for their respective parameter change, an average of the mean values was found. This resulting value was the average gain for that data set. This method was repeated for both the frequency and amplitude data sets for all 4 pre-amplifiers. The average gain for each pre-amplifier is a calculated average between the frequency and amplitude data sets for each PM.
+            </p>
+            <h2 class="pmt-cal">Calibration of PMT's</h2>
+            <p class="pmtcal-des">
+                Figure (\ref{pmt_circuit}) details the circuitry setup for the calibration of the PMT's. The array of PMT's were placed within a dark box constructed of plywood with an overlapping lid. All faces of the dark box were painted black. 
+
+                <img src="" alt="">
+
+                A feed through port was installed on the dark box. Incorrect ports were installed on this panel, thus all wires run to the PMT's and LED were fed in between the lid and side panel of the dark box. To increase low light conditions, the area where the wires for the high voltage to power the PMT's, the cable for carrying the signal to the LED, and the cables carrying the output signal of the PMT were wrapped in multiple layers of a black plastic table cloth. Figure (\ref{small_darkbox}) shows the dark box containing the PMT's and LED circuit.
+
+                <img src="" alt="">
+
+                The setup of the dark box, along with the LED and PMT's within it, were then placed within a larger dark box. This was done to optimize low light conditions for the calibration process. To calibrate the PMT's a LED diode was connected to a bread board, and pulsed photons onto the photo-cathode of the PMT. A signal generator different to the one used for the calibration of the pre-amplifier was used with the settings described in Table (\ref{signal_gen_settings})
+                
+                <table></table>
+
+
+                The signals outputted from the PMT were passed through the same (calibrated) electronics. Five data sets were acquired for each PMT. These data sets were named by waveform number 1-5, where waveform 1 had the largest amplitude setting on the signal generator for the LED, and waveform 5 had the smallest amplitude. The waveforms 1-5 decreased the amplitude in even steps of 0.1 V for each waveform step. Table (\ref{led_amp_val}) details the amplitude settings for each wave-form for each PMT
+
+                <table></table>
+
+                <img src="" alt="">
+                Figure (\ref{pmt_gen_waveform}) shows one of the waveforms collected from a PMT. The blue trace is the signal outputted from the PMT. The green trace is the signal generated and sent to the LED. The orange trace is the signal passing over a resistor in series, right after the LED. For each amplitude setting for each PMT, 10,000 wave-forms were collected and analyzed.  Similar to the handling of the electronic chain, that being to include the impedence factor of $t=\frac{143}{100}$, the blue trace was integrated to find the charge of the trace. For each PMT a CSV file with all of the charges were saved.  This CSV file was imported into a python file for analysis using PYROOT.
+                \begin{equation}\label{parent_model}
+                \Large
+                    f(x) = N_{ped} \cdot S_{ped} + N_{peaks} \cdot S_{peaks} + N_{noise} \cdot S_{noise}
+                \end{equation}
+                \begin{equation}\label{S_ped}
+                    \Large
+                    S_{ped}=\frac{1}{\sqrt{2\pi}\sigma_0}*e^{-0.5 \left (\frac{x-Q_{0}} {\sigma_0} \right)^2 -\mu}
+                \end{equation}
+                \begin{equation}\label{S_peaks}
+                    \Large
+                    S_{peaks}=\sum_{n=1}^{9}\frac{\mu^ne^{-\mu}}{n!}\frac{1}{\sqrt{2\pi}\sigma_1n}*e^{-\frac{1}{2n} \left(\frac{x-nQ_1-Q_0}{\sigma_1} \right)^2}
+                \end{equation}
+                \begin{equation}\label{S_noise}
+                    \Large
+                    S_{noise}=\alpha*e^{-\alpha(x-Q_0)-\mu},\hspace{1cm}for\hspace{0.2cm}x>Q_0
+                \end{equation}
+
+                Equation \eqref{parent_model} is the model that was used for fitting the histograms from the charge CSV files to calculate a reduced $\chi^2$ goodness of fit. 
+
+                <img src="" alt="">
+
+                Figure (\ref{model_pmt_hist}) shows one of these histograms being fitted with equation \eqref{parent_model}. Each histogram has three main parts to it. The left most peak is the pedestal corresponding to the electrical noise from the equipment. The peaks that follow from the pedestal correspond to some integer number PE peaks. After this, the exponential tail corresponds to all of the 0 PE traces that have a integrated charge larger than the pedestal. As stated before, these are known as dark counts. It should be noted that for compilation of the data, no baseline correction was included. Subsequently, the pedestal that corresponds to 0 PE traces is shifted off of a charge of 0 nC. To account for this, a shift is included within equations \eqref{S_ped}-\eqref{S_noise}, that being $Q_0$. Each waveform has a histogram made from all of its integrated traces. These histograms are analyzed in into three pieces, and each piece is modeled by one of the equations above \eqref{S_ped}-\eqref{S_noise}. Thus cutting points were chosen for where to fit the different models accordingly. For fitting the pedestal, an algorithm was implemented to find the valley between the pedestal peak and the first PE peak. Equation \eqref{S_ped} was used to fit from the beginning of the histogram, to this cutting points, for the pedestal peak. For choosing the cutting point for fitting the the noise counts, a point chosen by eye was found such that enough noise was modeled to find optimal values for fitting equation \eqref{S_noise}. Equation \eqref{S_noise} was fitting the exponential tail of the histograms. These cutting points were then used as the lower and upper limit for fitting equation \eqref{S_peaks}. Equation \eqref{S_peaks} was used to fit all of the PE peaks. When fitting each histogram a sequence of steps were taken as follows:
+
+                <ol>
+                    <dt>1. Fit the pedestal to a find rough value for $Q_0$.</dt>
+                    <dt>2. Once a rough $Q_0$ is found, use this to fit equation \eqref{S_noise} by choosing a cutting point by eye</dt>
+                    <dt>3. After optimal values for equation \eqref{S_noise} are found, equation \eqref{S_noise} was then subtracted off of the histogram</dt>
+                    <dt>4. After Noise subtraction, refitting the pedestal is done to find a better $Q_0$ value</dt>
+                    <dt>5. Once a proper $Q_0$ is found, this was then used to subtract off the pedestal.</dt>
+                    <dt>6. Once the pedestal and noise have been subtracted off, equation \eqref{S_peaks} was used to fit the PE peaks and extract a $Q_1$ value</dt>
+                </ol>
+                From equation \eqref{S_ped}, $Q_0$ is the position of the 0 PE peak, the pedestal. In equation \eqref{S_peaks}, $Q_1$ is the position of the 1 PE peak, and $\mu$ is the number of expected photons incident on the photo-cathode for any randomly chosen trace. All integer number PE peaks within a histogram are modeled by equation \eqref{S_peaks} accordingly by that integer number multiple of $Q_1$. Thus allowing for the extraction of only one parameter to describe all PE peaks. In equation \eqref{S_noise}, $\alpha$ is a decay constant of the PMT noise. When performing a gain calibration for the PMT's, $Q_1$ is the parameter of interest, as it details the average integrated charge (out of the 10,000 traces) of 1 PE. Meaning that out of the 10,000 traces, $Q_1$ is the average integrated charge corresponding to traces that contain 1 PE.
+                \begin{equation}\label{pmt_gain}
+                    PMT\hspace{0.5em}Gain=\frac{Q_1[nC] \cdot 10^-9[\frac{C}{nC}]}{1.6\cdot10^{-19} [C]}\cdot \frac{1}{PM\hspace{0.2cm}Gain}
+                \end{equation}
+                In equation \eqref{pmt_gain} a unit conversion from nC $\xrightarrow{}$ C is necessary, and by dividing by the charge of one electron, the gain of a PMT is found. $Q_1$ in equation \eqref{pmt_gain} also includes the gain of the electronic chain, and thus also includes the removal of that. A $Q_1$ value for each waveform was found. All $Q_1$ values were saved into a CSV file. A weighted average of the $Q_1$ values from all of the waveforms, for each PMT, was found and this value was used for finding the gain. The weights chosen for the calculation of the average were the errors on the $Q_1$ values. All values of $Q_1$, and found gains, were logged within a CSV file.
+
+            </p>
+        </p>
+    </body>
+</html>
