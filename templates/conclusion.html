@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/conclusion.css", type=text/css>
+        <link rel="stylesheet" href="../static/pageButtons.css">
+        <title>Abstract, Acknowledgements, and Title</title>
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+    </head>
+    <body>
+        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC</h1>
+        <p class="beginning"> 
+            <button class="introandtheory" onclick="window.location.href='http://192.168.0.122:5000/IntroAndTheory'">Introduction & Theory</button> 
+            <button class="apparatus" onclick="window.location.href='http://192.168.0.122:5000/Apparatus'">Apparatus</button> 
+            <button class="procedure" onclick="window.location.href='http://192.168.0.122:5000/Procedure'">Procedure</button> 
+            <button class="dataAnalysis" onclick="window.location.href='http://192.168.0.122:5000/DataAnalysis'">Data Analysis</button> 
+            <button class="conclusion" onclick="window.location.href='http://192.168.0.122:5000/Conclusions'">Conclusion</button> 
+            <button class="appendix" onclick="window.location.href='http://192.168.0.122:5000/Appendix'">Appendices</button> 
+            <br>Included within this page are buttons to take you to other parts of the paper, the acknowledgements, and the abstract for my paper.
+        </p>
+
+        <h1 class="conclusion-title">Conclusion</h1>
+        <p class="conlcusion-des">The purpose of this report was to disclose the efforts made in finding the gain values attributed to each PMT tested. Figure \ref{PMT_gain} details the values found. The manufacturer of the PMT's is Hamamatsu and has a data sheet detailing the expected results under certain operational parameters. Hamamastu details that operating the PMT's that were tested with a bias voltage of 1100V, a nominal gain of 500,000 is to be expected[19]. PMT0 and PMT1 are off from that and not within error. PMT2 and PMT3 are. PMT3's data was acquired on a different day than PMT0-2, and the time axis for the waveform traces was not the same as PMT0-2. Thus it is possible that part of a trace containing a PE might have been cut off, affecting the calculated gain by not integrating enough of a waveform's trace. It should be noted that a prior event occurred where the PMT's were dropped, and PMT3 was smashed. PMT2 and PMT3 were replaced, but not PMT0 or PMT1. All PMT's were tested/calibrated after the replacement of PMT2 and PMT3. Going forward, efforts should be made to further investigate the reliability and quality of measurements from PMT0 and PMT1. Another gain calibration, respecting the same time axis, should be performed on all PMT's when desired equipment for future experiments is available for testing.
+            
+        </p>
+
+
+    </body>
+</html>
