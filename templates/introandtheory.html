@@ -23,7 +23,7 @@
 
     
     <body>
-        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC</h1>
+        <h1 class="title">Gain Calibratioin for Array of PMT's for EXO-100's TPC&nbsp;&nbsp;&nbsp;&nbsp; <span class="honors-link"> <a href="https://drive.google.com/file/d/1GN49uLHQNL1AerRcZOyGSoTKI57S6upf/view?usp=sharing" target="_blank">Link to Honors Thesis PDF </a></span> </h1>
         <p class="beginning"> 
             <button class="introandtheory" onclick="window.location.href='http://192.168.0.122:5000/'">Abstract & Acknowledgments</button> 
             <button class="apparatus" onclick="window.location.href='http://192.168.0.122:5000/Apparatus'">Apparatus</button> 
@@ -31,6 +31,7 @@
             <button class="dataAnalysis" onclick="window.location.href='http://192.168.0.122:5000/DataAnalysis'">Data Analysis</button> 
             <button class="conclusion" onclick="window.location.href='http://192.168.0.122:5000/Conclusions'">Conclusion</button> 
             <button class="appendix" onclick="window.location.href='http://192.168.0.122:5000/Appendix'">Appendices</button> 
+            <button class="citations" onclick="window.location.href='http://192.168.0.122:5000/Citations'">References</button>
             <br>Included within this page are buttons to take you to other parts of the paper, the Introduction, and the Theory.
         </p>
         <h1 class="introduction">Introduction</h1>
@@ -58,10 +59,10 @@
             A set of equipment used for collecting scintillation light from a decay of interest is known as the light collection system. For this experiment, the light collection system was comprised of an array of PMT's, pre-amplifiers, an amplifier, and a oscilloscope. <br>
             <h3 class="photomultipliertubes-title">Photo-Multiplier Tubes</h3>
             <p class="photomultipliertubes-content">
-                A PMT is a detector that converts photons into photo-electrons (PE), through the photoelectric effect on a thin film called the photo-cathode. Figure (1) illustrates how high energy photons interact within a chamber producing low energy photons within the PMT. <br>
-                
-                <img id="pmt_operation" src="C:\Users\shark\Desktop\practice Code\Thesis Server\templates\picutres\PMT_operation.jpg" width="128" height="128" > <br>
-
+                A PMT is a detector that converts photons into photo-electrons (PE), through the photoelectric effect on a thin film called the photo-cathode. Figure (1) illustrates how high energy photons interact within a chamber producing low energy photons within the PMT. 
+                <p class="pmt_operation">
+                <img id="pmt_operation" src="data:imagejpeg;base64, {{fig1}}" width="700" height="380" ></img>
+                </p>
                 These low energy photons will collide with the photo-cathode, ejecting PE's. The PE's ejected from the photo-cathode will be focused down onto a series of dynodes. A dynode is a metal plate within the PMT that will be used for the amplification of a signal. The conversion of a photon into a PE has an efficiency, described as Quantum Efficiency [8]. The photo-cathode sensitivity varies with the wavelength of the incident photon [8]. The relationship between the photo-cathode sensitivity and the wavelength is known as the spectral response characteristic of a PMT [9]. The spectral response characteristic of a PMT will differ depending on the make up of material for a photo-cathode[9]. Figure (\ref{QE_plot}) details the relationship between the photo-cathode sensitivity and the wavelength of the photon. The spectral response is typically expressed in terms of a quantum efficiency and radiant sensitivity [9]. The quantum efficiency of a photo-cathode is defined as the ratio of photo-electrons emitted from a photo-cathode to the number of incident photons [8]. This efficiency is typically expressed as a percentage and is described in equation (3):
                 \begin{equation}
                     QE = \frac{Number\ of\ photo-electrons}{Number\ of\ incident\ photons}\cdot100\%

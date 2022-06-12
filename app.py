@@ -1,8 +1,12 @@
+from gettext import find
+from zipfile import is_zipfile
 from flask import Flask
 import numpy as np
 import pandas as pd
 from flask import render_template
-
+from PIL import Image
+import base64
+import io
 
 
 app = Flask(__name__)
@@ -14,7 +18,13 @@ def home():
 
 @app.route("/IntroAndTheory")
 def intro_and_theory():
-    return render_template('introandtheory.html')
+
+    im = Image.open("./figures/introandtheory/PMT_operation.jpg")
+    data = io.BytesIO()
+    im.save(data, "JPEG")
+    encoded_img_data = base64.b64encode(data.getvalue())
+
+    return render_template('introandtheory.html', fig1 = encoded_img_data.decode('utf-8'))
 
 @app.route("/Apparatus")
 def apparatus():
@@ -36,7 +46,13 @@ def conclusion():
 def appendix():
     return render_template('appendix.html')
 
+@app.route("/Citations")
+def citations():
+    return render_template('citations.html')
 
 if __name__ == '__main__':
 
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=5000)
+
+
+
