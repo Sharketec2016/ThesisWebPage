@@ -1,5 +1,4 @@
-from gettext import find
-from zipfile import is_zipfile
+from ast import Compare
 from flask import Flask
 import numpy as np
 import pandas as pd
@@ -9,8 +8,22 @@ import base64
 import io
 
 
-app = Flask(__name__)
+def grab_image(path):
+    im = Image.open(f"./figures/{path}")
+    data = io.BytesIO()
+    im.save(data, "JPEG")
+    encoded_img_data = base64.b64encode(data.getvalue())
+    return encoded_img_data
 
+def grab_png(path):
+    im = Image.open(f"./figures/{path}")
+    data = io.BytesIO()
+    im.save(data, "PNG")
+    encoded_img_data = base64.b64encode(data.getvalue())
+    return encoded_img_data
+
+
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -19,16 +32,25 @@ def home():
 @app.route("/IntroAndTheory")
 def intro_and_theory():
 
-    im = Image.open("./figures/introandtheory/PMT_operation.jpg")
-    data = io.BytesIO()
-    im.save(data, "JPEG")
-    encoded_img_data = base64.b64encode(data.getvalue())
+    PMT_operation = grab_image("introandtheory/PMT_operation.jpg")
+    quantum_eff = grab_png("introandtheory/quantum_eff.png")
+    voltage_divider = grab_png("introandtheory/voltage_divider_circuit_sebastian.png")
+    noisy_pmt = grab_png("introandtheory/noisy_pmt_signal.png")
 
-    return render_template('introandtheory.html', fig1 = encoded_img_data.decode('utf-8'))
+    return render_template('introandtheory.html', fig1 = PMT_operation.decode('utf-8'), fig2 = quantum_eff.decode('utf-8'), fig3 = voltage_divider.decode('utf-8'), fig4 = noisy_pmt.decode('utf-8'))
 
 @app.route("/Apparatus")
 def apparatus():
-    return render_template('apparatus.html')
+
+    pmts = grab_image("apparatus/PMTs.jpg")
+    ortec = grab_png("apparatus/ortec_preamp.png")
+    amp = grab_image("apparatus/amplifier.jpg")
+    pico = grab_image("apparatus/picoscope.jpg")
+    pulse = grab_png("apparatus/pulse_gen.png")
+
+
+
+    return render_template('apparatus.html', pmts=pmts.decode('utf-8'), ortec=ortec.decode('utf-8'), amp = amp.decode('utf-8'), pico=pico.decode('utf-8'), pulse=pulse.decode('utf-8'))
 
 @app.route("/Procedure")
 def procedure():

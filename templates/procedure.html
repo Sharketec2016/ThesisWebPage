@@ -41,7 +41,7 @@
             <p class="electronicCal-des">
                 As stated before, the electronic chain is the chain of equipment used to handle the signal from a PMT. 
 
-                <img src="" alt="">
+                <img src="data:imagejpeg;base64, {{pico}}" alt="">
 
                 Figure (\ref{electronic_chain_circuit}) details the setup used for calibrating the electronic chain. In figure (\ref{electronic_chain_circuit}), all forms of impedance are denoted 'Z'. A test pulse was created by the picoscopes arbitrary waveform generator, and sent through the electronic chain. Figure (\ref{electronic_chain_waveform}) shows one of the traces acquired from the calibration of the electronic chain. 
 
@@ -79,9 +79,27 @@
                 <img src="" alt="">
 
                 The setup of the dark box, along with the LED and PMT's within it, were then placed within a larger dark box. This was done to optimize low light conditions for the calibration process. To calibrate the PMT's a LED diode was connected to a bread board, and pulsed photons onto the photo-cathode of the PMT. A signal generator different to the one used for the calibration of the pre-amplifier was used with the settings described in Table (\ref{signal_gen_settings})
-                
-                <table></table>
-
+                <center>
+                <table class="table1" style="width: 40%">
+                    <caption>Pulse Generator Settings</caption>
+                    <tr>
+                        <td>Frequency</td> <td>10 kHz</td>
+                    </tr>
+                    <tr>
+                        <td>Delay</td> <td>0.1 $\mu$s</td>
+                    </tr>
+                    <tr>
+                        <td>Polarity</td> <td>positive</td>
+                    </tr>
+                    <tr>
+                        <td>Fall Time</td> <td>0.5 $\mu$s</td>
+                    </tr>
+                    <tfoot>
+                        <td>Table 1: Settings used for generating pulse sent to LED</td>
+                    </tfoot>
+                    
+                </table>
+            </center>
 
                 The signals outputted from the PMT were passed through the same (calibrated) electronics. Five data sets were acquired for each PMT. These data sets were named by waveform number 1-5, where waveform 1 had the largest amplitude setting on the signal generator for the LED, and waveform 5 had the smallest amplitude. The waveforms 1-5 decreased the amplitude in even steps of 0.1 V for each waveform step. Table (\ref{led_amp_val}) details the amplitude settings for each wave-form for each PMT
 

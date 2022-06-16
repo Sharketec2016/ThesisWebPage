@@ -68,31 +68,19 @@
                     QE = \frac{Number\ of\ photo-electrons}{Number\ of\ incident\ photons}\cdot100\%
                 \end{equation}
 
-                \begin{figure}[H]
-                    \centering
-                    \hspace{-1cm}
-                    \includegraphics[width=0.7\textwidth]{Pictures/quantum_eff.png}
-                    \caption{Quantum Efficiency as function of Wavelength of Incident Photons [8]}
-                    \label{QE_plot}
-                \end{figure}
+                <p class="pmt_operation">
+                    <img id="pmt_operation" src="data:imagepng;base64, {{fig2}}" width="500" height="500" ></img>
+                    </p>
                 Once a photo-electron is ejected off the photo-cathode, it is focused toward the first dynode by a pair of electrodes seen in figure (\ref{PMT_diagram}). The series of dynodes within the PMT are held at a potential difference to the next one in the series. When the first PE accelerates down onto the first dynode, it collides with the dynode. As a result, the energy transferred from the PE will eject more electrons. These new electrons are called 'secondary emission electrons', and they will be accelerated down onto the next dynode within the series. This multiplication process will continue until all of the secondary electrons are deposited onto an anode. This large deposit of electrons is the PMT's outputted pulse. A power supply is used in conjunction with a voltage divider circuit to hold the dynodes within the PMT at a desired potential difference. Figure(\ref{voltage_divider_circuit}) details a voltage divider circuit.
-                \begin{figure}[H]
-                    \centering
-                    \hspace*{-1cm}
-                    \includegraphics[width=1.2\textwidth]{Pictures/voltage_divider_circuit_sebastian.png}
-                    \caption{Voltage Divider Circuit for Light Collection System for EXO-100 TPC [2]}
-                    \label{voltage_divider_circuit}
-                \end{figure}
+                <p class="pmt_operation">
+                    <img id="pmt_operation" src="data:imagepng;base64, {{fig3}}" width="900" height="500" ></img>
+                    </p>
                 PMT's are designed to be single PE sensitive and are used within low light conditions[20]. Even when a PMT is operated within low light conditions, outputted signals corresponding to a '0' PE trace can occur. 
                 Figure(\ref{noisy_pmt_signal}) visualizes a PMT trace that has lots of noise. 
                 %put the figure of a PMT trace that is super noisy
-                \begin{figure}[H]
-                    \centering
-                    \hspace*{0cm}
-                    \includegraphics[width=1\textwidth]{Pictures/noisy_pmt_signal.png}
-                    \caption{Noisy PMT Signal}
-                    \label{noisy_pmt_signal}
-                \end{figure}
+                <p class="pmt_operation">
+                    <img id="pmt_operation" src="data:imagepng;base64, {{fig4}}" width="700" height="500" ></img>
+                    </p>
                 These type of noise pulses are known are 'dark pulses', or 'dark counts'. Dark pulses will typically fall within one of the following categories:
 
                 <ol>

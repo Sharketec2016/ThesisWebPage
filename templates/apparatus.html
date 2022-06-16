@@ -39,19 +39,30 @@
             <ol>
                 <dt class="PMT">4x R6237-01 Hamamatsu Photo-Multiplier Tubes</dt>
                 <dd class="PMT-des">Size of the square window is 76 mm [13]. Each PMT was operated at a bias voltage of 1100V. See section (2.2.1) for details on how Hamamatsu PMT's operates. </dd>
-                <img src="" alt="">
-
+                <center>
+                <img id="pmt_operation" src="data:imagejpeg;base64, {{pmts}}" width="500" height="500" ></img>
+            </center>
                 <dt class="ortec-pre">4x Ortec 113 Pre-amplifier's</dt>
                 <dd class="ortec-des">The Ortec 113 pre-amplifier is designed to be used for scintillation-type experiments. The pre-amplifier is designed to be paired with a pulse shaping amplifier. The rise time is $<$60 nanoseconds, with a fall time of 50 $\mu s$ (assuming a signal source impedance of 1 $M\Omega$). The input signal capacitor can be changed to a desired capacitance of 0, 100,  200, 500, or 1000 pF. The input signal takes a BNC cable and has a 1 M$\Omega$ input impedence, then followed by a 45 pF capacitor. The output signal from the pre-amplifier also uses a BNC connector. The output impedance can be adjusted from 40 to 140 $\Omega$. The pre-amplifier can take in a test pulse and this test pulse connector is also BNC. The test pulse accepts a fast rise and slow decay pulse from a pulse generator, as well as an input impedance of 100 $\Omega$ [14].</dd>
-                <img src="" alt="">
-
+                <center>
+                <img id="pmt_operation" src="data:imagepng;base64, {{ortec}}" width="500" height="380" ></img>
+            </center>
                 <dt class="amp">CANBERRA Spectroscopy Amplifier Model: 2021</dt>
                 <dd class="amp-des">This amplifier's manual was not able to be found, and all specifications come from the etchings on the amplifiers case. Amplifier has two output ports, for Bipolar and Uni-polar signals, that have a output impedance of 93 $\Omega$. Amplifier has a dial for changing the fine gain and course gain. The course gain settings are 10, 30, 100, 300, 1k, and 3k. The amplifier has a input polarity switch that was set to positive. All input and output connectors are BNC.</dd>
-                <img src="" alt="">
-
+                <center>
+                <img id="amplifier" src="data:imagejpeg;base64, {{amp}}" width="450" height="500" class="amplifier" ></img>
+            </center>
                 <dt class="picoscope">Picoscope 6000 Series D</dt>
                 <dd class="picoscope-des">The picoscope is a pc oscilloscope operated through the process of connecting the oscilloscope to a computer and installing the proper software and drivers. This software was provided by the manufacture pico-technologies. The picoscope functions like a normal oscilloscope. The front 4 connectors each take a BNC cable. All input channels have an input impedance of either 50 $\Omega$ or 1M$\Omega$. For a signal sent from a 50 $\Omega$ output impedance source, the signal does not need to be externally terminated, as this is done for the user within the picoscope.  On the back of the picoscope, along with the power port, is a connector for a USB cable that connects directly to the computer. A port for generating/sending out test pulses is possible through the picoscopes configurable arbitrary waveform generator. The desired test pulse for calibration can be configured within the picoscope software [15].</dd>
-                <img src="" alt="">
+                <center>
+                <img id="pmt_operation" src="data:imagejpeg;base64, {{pico}}" width="500" height="380" ></img>
+            </center>
+
+                <dt class="pulse_gen">Berkeley Nucleonics Corp, Model BH-1: NIM Tail Pulse Generator</dt>
+                <dd>This signal generator was used to generator the pulses sent to the LED for PMT calibration. This generator was set with a frequency of 10 kHz, a time delay of 0.1 $\mu s$, positive pulse polarity, and a fall time of 0.5 $\mu s$. See reference [21, 22] for more details on the range of applications of this equipment.</dd>
+                <center>
+                    <img src="data:imagepng;base64, {{pulse}}" width="350", height="600">
+                </center>
 
                 <dt class="software">Software</dt>
                 <dd class="code-des">The picoscope software was used for logging and saving all waveform traces into CSV files. Several python scripts were designed and used for the compilation, baseline subtraction, and integration of wave-forms to find the charge of the wave-forms. All integrated charge was saved into CSV files. For analysis of these CSV files, ROOT's python wrapper called PYROOT was imported into a separate python script for analysis.</dd>
